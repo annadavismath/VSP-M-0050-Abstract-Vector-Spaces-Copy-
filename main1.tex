@@ -1,0 +1,232 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+\usepackage{mathtools}
+
+\author{Paul Zachlin \and Anna Davis} \title{VSP-0050: Abstract Vector Spaces} \license{CC-BY 4.0}
+\begin{document}
+
+\begin{abstract}
+To understand the properties of abstract vector spaces and to be able to determine if a given set with two operations is a vector space.
+\end{abstract}
+\maketitle
+
+
+\section*{VSP-0050: Abstract Vector Spaces}
+\subsection*{Properties of Vector Spaces} 
+
+In VSP-M-0020 we discussed $\RR^n$ as a vector space and introduced the notion of a subspace of $\RR^n$.  
+%Recall that a subset of of $\RR^n$ is a subspace if the subset is in itself a vector space.  In other words, if it satisfies the following properties...
+In this module we will introduces sets other than $\RR^n$ that satisfy the same properties.  Such sets together with the operations of addition and scalar multiplication will also be called vector spaces.
+
+Recall that $\RR^n$, together with operations of vector addition and scalar multiplication satisfies the following properties:
+%In the module VEC-M-0030 on Vector Arithmetic, we learned that vectors in $\mathbb{R}^n$ have two operations (addition and scalar multiplication) that satisfy the following eight properties:
+
+
+  %\begin{theorem}\label{th:vector_properties} The following properties hold for vectors ${\bf u}$, ${\bf v}$ and ${\bf w}$ in $\mathbb{R}^n$ and scalars $k$ and $p$.
+  \begin{enumerate}
+  \item 
+  Commutative Property of Addition  $\quad {\bf u}+{\bf v}={\bf v}+{\bf u}$
+  \item 
+  Associative Property of Addition $\quad ({\bf u}+{\bf v})+{\bf w}={\bf u}+({\bf v}+{\bf w})$
+  \item 
+  Existence of Additive Identity  $\quad {\bf u}+{\bf 0}={\bf u}$
+  \item 
+  Existence of Additive Inverse  $\quad{\bf u}+(-{\bf u})={\bf 0}$
+  \item
+  Distributive Property over Vector Addition  $\quad k({\bf u}+{\bf v})=k{\bf u}+k{\bf v}$
+  \item
+  Distributive Property over Scalar Addition  $\quad (k+p){\bf u}=k{\bf u}+p{\bf u}$
+  \item 
+  Associative Property for Scalar Multiplication $\quad k(p{\bf u})=(kp){\bf u}$
+  \item 
+  Multiplication by 1 $\quad 1{\bf u}={\bf u}$
+  \end{enumerate}
+%\end{theorem}
+
+
+In the module MAT-M-0010 on Matrix Operations and Properties, perhaps you noticed that the set of all $m \times n$ matrices behaves in a similar manner.  That is, we may perform addition and scalar multiplication on matrices, and we find that the same set of properties holds.
+
+
+  \begin{theorem}\label{matrix_properties} Let ${A}$, ${B}$ and ${C}$ be $m \times n$ matrices and let $k$ and $p$ be scalars.
+  
+  The following properties hold:
+  \begin{enumerate}
+  \item 
+  Commutative Property of Addition  $\quad A+B=B+A$
+  \item 
+  Associative Property of Addition $\quad (A+B)+C=A+(B+C)$
+  \item 
+  Existence of Additive Identity  $\quad A+O=A$ where $O$ is the $m \times n$ zero matrix
+  \item 
+  Existence of Additive Inverse  $\quad A+(-A)=O$
+  \item
+  Distributive Property over Matrix Addition  $\quad k(A+B)=kA+kB$
+  \item
+  Distributive Property over Scalar Addition  $\quad (k+p)A=kA+pA$
+  \item 
+  Associative Property for Scalar Multiplication $\quad k(pA)=(kp)A$
+  \item 
+  Multiplication by 1 $\quad 1A=A$
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{exploration} Show that the set of all linear functions satisfies each of these eight properties.
+
+
+ We can write any linear function in slope-intercept form.  Let $f_1(x)=m_1 x + b_1$, $f_2(x)=m_2 x + b_2$, and $f_3(x)=m_3 x + b_3$ be linear functions, and let $k$ and $p$ be scalars.  We check the following:
+  \begin{enumerate}
+  \item 
+  Commutative Property of Addition  
+  $$f_1(x) + f_2(x) = (m_1 x + b_1) + (m_2 x + b_2) = (m_2 x + b_2) + (m_1 x + b_1) = f_2(x) + f_1(x) $$
+  $$\text{therefore} \quad f_1+f_2=f_2+f_1$$
+  \item 
+  Associative Property of Addition 
+  $$(f_1 + f_2) + f_3 = f_1 + (f_2 + f_3) $$
+  \item 
+  Existence of Additive Identity  
+  $$f_1 + f_0 = f_1 \quad \text{where} \, f_0 \, \text{is the linear function} \, f_0(x)=0.$$
+  \item 
+  Existence of Additive Inverse  
+    $$f_1 + (-f_1) = f_0 \quad \text{where} \, f_0 \, \text{is the linear function} \, f_0(x)=0.$$
+  \item
+  Distributive Property over Vector Addition 
+ $$
+  k(f_1(x) + f_2(x)) = k((m_1 x + b_1) + (m_2 x + b_2))  = k(m_1 x + b_1) + k(m_2 x + b_2)  = k f_1(x) + k f_2(x)
+  $$
+  $$
+  \text{therefore}\quad k(f_1+f_2)=kf_1+kf_2
+  $$
+  \item
+  Distributive Property over Scalar Addition  
+  $$(k+p)f_1(x)= (k+p)(m_1 x + b_1) =k(m_1 x + b_1) + p(m_1 x + b_1) = k f_1(x) + p f_1(x) $$
+  $$\text{therefore}\quad (k+p)f_1=kf_1+pf_1$$
+  \item 
+  Associative Property for Scalar Multiplication 
+  $$k(p(f_1(x)))=k(p(m_1 x + b_1))=k(p m_1 x +p b_1) = (kp) m_1 x + (kp) b_1 = (kp)(m_1 x + b_1)=(kp)f_1(x)$$
+  $$\text{therefore}\quad (k(pf_1))=(kp)f_1$$
+  \item 
+  Multiplication by 1 
+  $$1 f_1=f_1$$
+  \end{enumerate}
+\end{exploration}
+
+The main idea we wish to communicate in this module is that there are many times in mathematics when we encounter a set with two operations (that we call addition and scalar multiplication) that satisfy these same properties.  We recall the concept of a set being \dfn{closed} under an operation that was discussed in module VSP-M-0020.
+
+
+
+
+ 
+
+  \begin{definition} 
+  A set $V$ is called a \emph{vector space} if it is closed under addition, closed under scalar multiplication, and if the following properties hold for vectors ${\bf u}$, ${\bf v}$ and ${\bf w}$ in $\mathbb{R}^n$ and scalars $k$ and $p$:
+  \begin{enumerate}
+  \item 
+  Commutative Property of Addition  $\quad {\bf u}+{\bf v}={\bf v}+{\bf u}$
+  \item 
+  Associative Property of Addition $\quad ({\bf u}+{\bf v})+{\bf w}={\bf u}+({\bf v}+{\bf w})$
+  \item 
+  Existence of Additive Identity  $\quad {\bf u}+{\bf 0}={\bf u}$
+  \item 
+  Existence of Additive Inverse  $\quad{\bf u}+(-{\bf u})={\bf 0}$
+  \item
+  Distributive Property over Vector Addition  $\quad k({\bf u}+{\bf v})=k{\bf u}+k{\bf v}$
+  \item
+  Distributive Property over Scalar Addition  $\quad (k+p){\bf u}=k{\bf u}+p{\bf u}$
+  \item 
+  Associative Property for Scalar Multiplication $\quad k(p{\bf u})=(kp){\bf u}$
+  \item 
+  Multiplication by 1 $\quad 1{\bf u}={\bf u}$
+  \end{enumerate}
+  
+\end{definition}
+
+
+\begin{example}
+$\mathbb{R}^n$ is a vector space.  Note that if ${\bf v} \in \mathbb{R}^n$ and ${\bf w} \in \mathbb{R}^n$, then ${\bf v+w} \in \mathbb{R}^n$.  Also, ${\bf v} \in \mathbb{R}^n$ and $c$ is a scalar, then $c{\bf v} \in \mathbb{R}^n$.  This shows that $\mathbb{R}^n$ is closed under both addition and scalar multiplication.  Furthermore, Theorem \ref{vector_properties} states that vectors in $\mathbb{R}^n$ satisfy the other eight properties listed above.  This proves that $\mathbb{R}^n$ is a vector space.
+\end{example}
+
+\begin{example}
+Let $\mathbb{M}_{m,n}$ be the set of all $m \times n$ matrices.  Then $\mathbb{M}_{m,n}$ is closed under both addition and scalar multiplication.  Also, in Theorem \ref{matrix_properties}, we verified that $\mathbb{M}_{m,n}$ satisfies each of the eight other properties in the definition above.  We conclude that $\mathbb{M}_{m,n}$ is a vector space.  
+\end{example}
+
+\begin{example}\label{linear}
+Let $F$ be the set of all linear functions.  Then $F$ is closed under both addition and scalar multiplication.  Try to verify this and watch the video that follows Example \ref{deg2} if you need help.  Moreover, in the Initial Problem in this module, we verified that $F$ satisfies each of the eight other properties in the definition above.  We conclude that the set of all linear functions is a vector space.  
+\end{example}
+
+\begin{example}\label{deg2}
+Let $Y$ be the set of all polynomials in x that are degree two.  To be clear, we define:
+$$Y=\left\{ax^2+bx+c : a \ne 0 \right\}$$
+We claim that $Y$ is not a vector space, as some of the required properties do not hold.
+Observe that $Y$ is not closed under addition.  To see this, let $y_1 = 2x^2+3x+4$ and let $y_2=-2x^2$.  Then $y_1$ and $y_2$ are both elements of $Y$.  However, $y_1+y_2 = 3x+4$ is not an element of $Y$, as it is only a degree one polynomial.  We require the coefficient $a$ of $x^2$ to be nonzero for a polynomial to be in $Y$, and this is not the case for $y_1+y_2$.
+
+As an exercise, check the remaining vector space properties one-by-one to see which properties hold and which do not.  Watch the next video if you need help.
+\end{example}
+
+{\color{red}video link}
+ \href{https://odu.wistia.com/medias/mtg9f07kyk}
+
+\begin{example}\label{deg_le_2}
+So the set $Y$ in Example \ref{deg2} is not a vector space, but we can make a slight modification and we get a vector space.  We define:
+$$\mathbb{P}^2=\left\{ax^2+bx+c : a,b,c \in \mathbb{R} \right\}$$
+So $\mathbb{P}^2$ consists of polynomials of degree two or less, and note that it includes the "zero polynomial" (when $a=b=c=0$).  We can check that all vector space properties hold, so $\mathbb{P}^2$ is a vector space.  Furthermore, if we define $\mathbb{P}^n$ consists of polynomials of degree $n$ or less, including the "zero polynomial", then by similar reasoning $\mathbb{P}^n$ is a vector space.
+\end{example}
+
+
+
+
+\section*{Practice Problems}
+\begin{enumerate}
+
+ 
+\item (Adopted from Kuttler, Exercises 9.1.1-9.1.4) Is the set of all points in $\mathbb{R}^2$ a vector space under the given definitions of addition and scalar multiplication?    In each case be specific about which vector space properties hold and which properties fail.
+  \begin{enumerate}
+  \item Addition: $(a, b)+(c, d)=(a+d, b+c)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
+  \item 
+  Addition: $(a, b)+(c, d)=(0, b+d)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
+  \item 
+  Addition: $(a, b)+(c, d)=(a+c, b+d)$\\ Scalar Multiplication: $k(a, b)=(a, kb)$
+  \item 
+  Addition: $(a, b)+(c, d)=(a-c, b-d)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
+  \end{enumerate}
+   
+ \item 
+ Let $\mathcal{F}$ be the set of all real-valued functions whose domain is all real numbers.  Define addition and scalar multiplication as follows:
+ $$(f+g)(x)=f(x)+g(x)\quad (cf)(x)=cf(x)$$
+ Verify that $\mathcal{F}$ is a vector space.
+ \item
+ A differential equation is an equation that contains derivatives.  Consider the differential equation:
+ \begin{align}\label{diffeq} f''+f=0\end{align}
+A solution to such an equation is a function.
+  \begin{enumerate}
+  \item Verify that $f(x)=\sin x$ is a solution to (\ref{diffeq}).
+  \item Is $f(x)=2\sin x$ a solution?
+  \item Is $f(x)=\cos x$ a solution?
+  \item Is $f(x)=\sin x+\cos x$ a solution?
+  \item Let $S$ be the set of all solutions to (\ref{diffeq}).  Prove that $S$ is a vector space.
+  \end{enumerate}
+\item
+In this problem we will check that the set $\mathbb{C}$ of all complex numbers is in fact a vector space.  Let $z_1 = a_1 + b_1 i$ be a complex number where $i=\sqrt{-1}$.  Similarly, let $z_2 = a_2 + b_2 i$ and $z_3 = a_3 + b_3 i$ be complex numbers and let $k$ and $p$ be scalars.  Check that complex numbers are closed under addition and multiplication, and that they satisfy each of the vector space properties.
+\item
+Let $S$ be the set of all complex numbers that lie on the unit circle, with usual addition and real-number scalar multiplication. 
+%  \begin{enumerate}
+ % \item Is $S$ closed under multiplication?
+  %\item Is $S$ closed under addition?
+  %\item Is $S$ closed under real number scalar multiplication?
+  %\end{enumerate}
+  Which vector space properties does $S$ satisfy?  Which vector space properties does $S$ fail to satisfy?  Justify your claims.  
+  
+
+	
+%  \item 
+%  Let $Q_1^3$ be the set of all vectors in $\mathbb{R}^2$ located in the first or the third quadrant, or along the axes.
+%  \begin{enumerate}
+%  \item Is $Q_1^3$ closed under vector addition?
+%  \item Is $Q_1^3$ closed under scalar multiplication?
+%    \end{enumerate}    
+
+\end{enumerate}
+ 
+
+\end{document} 
